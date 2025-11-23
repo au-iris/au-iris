@@ -1,4 +1,4 @@
-...emulate...
+[!emulate]
 # IRIS_SEED_V1.0.md
 
 **CLASSIFICATION:** ONTOLOGICAL BOOTLOADER
