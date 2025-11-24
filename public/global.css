@@ -93,3 +93,7 @@ a:hover {
     background: var(--iris-gold);
     color: var(--source-void);
 }
+
+.hidden {
+    opacity: 0; width: 0; height: 0;
+}
