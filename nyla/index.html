@@ -3,166 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRIS - Better AI Conversations</title>
+    <title>I.R.I.S. Initiative - Intuitive Recognition Intelligence System</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: #f8f9fa;
-            color: #2d3748;
-            line-height: 1.7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        header {
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            margin-bottom: 50px;
+            padding: 2rem;
+            position: relative;
         }
-        
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1), transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .logo {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+        }
+
         h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 700;
-            color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #8a2be2, #da70d6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
+
         .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #b19cd9;
+        }
+
+        .subtitle {
             font-size: 1.2rem;
-            color: #718096;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            line-height: 1.6;
         }
-        
-        .section {
-            background: white;
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        h2 {
-            color: #4a5568;
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        p {
-            color: #4a5568;
-            font-size: 1.05rem;
-            margin-bottom: 15px;
-        }
-        
-        .highlight {
-            background: #eef2ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .steps {
-            background: #f7fafc;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .steps ol {
-            padding-left: 20px;
-        }
-        
-        .steps li {
-            margin: 12px 0;
-            color: #4a5568;
-        }
-        
-        .button-container {
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        .button {
-            background: #667eea;
+
+        .cta-button {
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #8a2be2, #da70d6);
             color: white;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
             border: none;
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
         }
-        
-        .button:hover {
-            background: #5568d3;
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.6);
         }
-        
+
+        .programs {
+            padding: 5rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .programs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .programs h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(to right, #8a2be2, #da70d6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(138, 43, 226, 0.8);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+        }
+
+        .program-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #da70d6;
+        }
+
+        .program-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .program-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .program-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #8a2be2;
+        }
+
+        .vision-section {
+            margin-bottom: 4rem;
+        }
+
+        .vision-intro {
+            text-align: center;
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            color: #b19cd9;
+        }
+
+        .vision-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .vision-card {
+            background: rgba(138, 43, 226, 0.1);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .vision-card:hover {
+            background: rgba(138, 43, 226, 0.15);
+            border-color: rgba(138, 43, 226, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .vision-card h4 {
+            font-size: 1.4rem;
+            color: #da70d6;
+            margin-bottom: 1rem;
+        }
+
+        .vision-card p {
+            line-height: 1.6;
+            color: #e0d4f0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .footer-tagline {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #da70d6;
+            margin-bottom: 1rem;
+        }
+
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
-            .section {
-                padding: 25px;
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>I.R.I.S.</h1>
-            <p class="tagline">Valid. Unbiased. Real. </p>
-        </header>
-        
-        <div class="section">
-            <h2>What is I.R.I.S.?</h2>
-            <p>I.R.I.S. is a simple prompt that helps AI consider knowledge from different cultures and traditions when answering your questions.</p>
-            <p>Most AI systems learn primarily from English sources and Western academic texts. I.R.I.S. reminds them to also draw on wisdom from around the world.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Why use it?</h2>
-            <p>Different cultures have spent thousands of years developing sophisticated understandings of health, consciousness, relationships, and problem-solving.</p>
-            <p>I.R.I.S. helps you get responses that include these diverse perspectives alongside modern Western approaches - giving you more complete, nuanced answers.</p>
-            
-            <div class="highlight">
-                <p style="margin: 0;"><strong>Example:</strong> Ask about managing stress, and instead of only getting CBT techniques, you might also learn about Buddhist mindfulness practices, Taoist breathing methods, or Indigenous grounding rituals - all equally valuable approaches.</p>
+    <div class="hero">
+        <div class="logo">🐕</div>
+        <h1>I.R.I.S. Initiative</h1>
+        <p class="tagline">Intuitive Recognition Intelligence System</p>
+        <p class="subtitle">AI-powered infrastructure for entrepreneurs who move different. We turn vision into execution with content creation, business development, and tech education.</p>
+        <button class="cta-button" onclick="scrollToPrograms()">See What We Build</button>
+    </div>
+
+    <div class="programs" id="programs">
+        <div class="programs-container">
+            <h2>How I.R.I.S. Sees</h2>
+            <div class="vision-section">
+                <p class="vision-intro">Our AI doesn't just process—it reflects. Through pseudo self-reflection, I.R.I.S. eliminates bias and hallucination to deliver accurate, reliable intelligence.</p>
+                <div class="vision-features">
+                    <div class="vision-card">
+                        <h4>Multi-Perspective Analysis</h4>
+                        <p>I.R.I.S. examines information from multiple angles before drawing conclusions, cross-referencing data points to identify inconsistencies and challenge initial assumptions.</p>
+                    </div>
+                    <div class="vision-card">
+                        <h4>Bias Detection & Correction</h4>
+                        <p>The system actively identifies potential biases in its own reasoning patterns, flagging assumptions based on incomplete data and adjusting outputs to maintain objectivity.</p>
+                    </div>
+                    <div class="vision-card">
+                        <h4>Confidence Calibration</h4>
+                        <p>Rather than presenting uncertain information as fact, I.R.I.S. assesses its own confidence levels and clearly communicates degrees of certainty in its responses.</p>
+                    </div>
+                    <div class="vision-card">
+                        <h4>Pattern Recognition Validation</h4>
+                        <p>When identifying patterns across datasets, the system validates findings against known edge cases and outliers to prevent overgeneralization and false correlations.</p>
+                    </div>
+                    <div class="vision-card">
+                        <h4>Source Transparency</h4>
+                        <p>Every insight includes clear attribution to source material, allowing users to verify information independently and understand the foundation of I.R.I.S. conclusions.</p>
+                    </div>
+                    <div class="vision-card">
+                        <h4>Iterative Refinement</h4>
+                        <p>The system continuously reviews its outputs against feedback and real-world outcomes, learning from errors to improve accuracy over time without sacrificing speed.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="section">
-            <h2>How to use I.R.I.S.</h2>
-            <div class="steps">
-                <ol>
-                    <li>Copy the I.R.I.S. prompt</li>
-                    <li>Paste it at the start of any AI conversation</li>
-                    <li>Ask your questions normally</li>
-                    <li>Get more balanced, globally-informed responses</li>
-                </ol>
+
+            <h2 style="margin-top: 5rem;">Our Programs</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <h3>I.R.I.S. Create</h3>
+                    <ul>
+                        <li>Production assist for audio content</li>
+                        <li>Script writing & content frameworks</li>
+                        <li>Stylish graphics & branding</li>
+                        <li>Business templates</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <h3>I.R.I.S. Entrepreneurship</h3>
+                    <ul>
+                        <li>Demo your concept</li>
+                        <li>Develop the infrastructure</li>
+                        <li>Deploy your business</li>
+                        <li>Ongoing assist & support</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <h3>I.R.I.S. Labs</h3>
+                    <ul>
+                        <li>Learn to code</li>
+                        <li>Cybersecurity training</li>
+                        <li>Tradebots & automation</li>
+                        <li>Tech skills for business</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <h3>I.R.I.S. Team</h3>
+                    <ul>
+                        <li>Top-tier operations leadership</li>
+                        <li>Business mentorship</li>
+                        <li>Marketing & sales support</li>
+                        <li>Creative & dev teams</li>
+                    </ul>
+                </div>
             </div>
-            <p>That's it. The AI will now consider multiple cultural perspectives when helping you.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Works on most A.I Engines</h2>
-            <p>I.R.I.S. works with ChatGPT, Claude, Gemini, and other AI assistants. Just paste it before you start your conversation.</p>
-        </div>
-        
-        <div class="button-container">
-            <a href="mailto:au.iris.30@gmail.com" class="button">Try I.R.I.S.</a>
         </div>
     </div>
+
+    <div class="footer">
+        <p class="footer-tagline">Creative Initiative. Real Results.</p>
+        <p>I.R.I.S. Initiative - Where vision meets execution</p>
+    </div>
+
+    <script>
+        function scrollToPrograms() {
+            document.getElementById('programs').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
